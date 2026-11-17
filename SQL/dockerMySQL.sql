@@ -31,3 +31,16 @@ JOIN videos v USING(id_video);
 SELECT u.id_usuario, u.username, v.id_usuario, v.id_video
 FROM usuarios u
 LEFT JOIN videos v ON u.id_usuario = v.id_usuario;
+
+-- usuarios sin videos
+
+SELECT u.id_usuario, u.username, v.id_usuario, v.id_video
+FROM usuarios u
+LEFT JOIN videos v ON u.id_usuario = v.id_usuario
+WHERE v.id_usuario IS NULL;
+
+-- videos sin usuario
+
+SELECT v.id_video
+FROM videos v
+WHERE v.id_usuario IS NULL;
